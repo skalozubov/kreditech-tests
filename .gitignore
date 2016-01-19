@@ -1,7 +1,15 @@
-*.class
+.classpath
+.project
+.settings
+*.log
+target
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+
+#Ignore IntelliJ project files
+######################
+.idea
+*.iml
+*ide-plugin.xml
 
 # Package Files #
 *.jar
