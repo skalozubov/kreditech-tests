@@ -8,6 +8,11 @@
     <artifactId>kreditech-tests</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <baseUrl>https://www.google.com.ua/</baseUrl>
+        <browser>CHROME</browser>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -82,6 +87,26 @@
                     <target>1.7</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <id>process-classes</id>
+                        <phase>process-classes</phase>
+                        <configuration>
+                            <target>
+                                <chmod file="target/classes/webdrivers/chromedriver_mac" perm="755"/>
+                                <chmod file="target/classes/webdrivers/chromedriver_linux" perm="755"/>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
@@ -98,29 +123,5 @@
             </plugin>
         </plugins>
     </reporting>
-
-    <profiles>
-        <profile>
-            <id>prod</id>
-            <properties>
-                <environment>PROD</environment>
-                <baseUrl>https://askalozubov.myjetbrains.com/youtrack</baseUrl>
-                <browser>CHROME</browser>
-            </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-        </profile>
-        <profile>
-            <id>stage</id>
-            <properties>
-                <environment>STAGE</environment>
-                <baseUrl>https://askalozubov.myjetbrains.com/youtrack</baseUrl>
-                <browser>FIREFOX</browser>
-            </properties>
-        </profile>
-    </profiles>
-
-
 
 </project>

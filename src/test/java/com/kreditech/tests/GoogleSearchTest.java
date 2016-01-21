@@ -17,6 +17,6 @@ public class GoogleSearchTest extends BaseTest {
         SearchPage searchPage = new SearchPage(driver);
         SearchResultsPage searchResultsPage = searchPage.searchFor(searchString);
         HomePage homePage = searchResultsPage.selectResultWithKreditechSite();
-        assertTrue(homePage.isSocialSectionPresent(), "Social section absent on the Home page");
+        assertTrue(homePage.isSocialSectionPresent(), "Social section is absent on the Home page");
     }
 }

@@ -57,7 +57,6 @@ public class WebDriverManager {
         profile.setAcceptUntrustedCertificates(true);
         profile.setAssumeUntrustedCertificateIssuer(false);
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(CapabilityType.PAGE_LOADING_STRATEGY, "eager");
         capabilities.setCapability(FirefoxDriver.PROFILE, profile);
         driver = new FirefoxDriver(capabilities);
         driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
