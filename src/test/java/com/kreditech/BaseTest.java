@@ -2,12 +2,15 @@ package com.kreditech;
 
 import com.kreditech.helpers.PropertiesLoader;
 import com.kreditech.helpers.WebDriverManager;
+import com.kreditech.listeners.ExecutionListener;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 
+@Listeners(ExecutionListener.class)
 public class BaseTest {
-    protected WebDriver driver;
+    public WebDriver driver;
     private WebDriverManager webDriverManager = new WebDriverManager();
     private PropertiesLoader propertiesLoader = new PropertiesLoader();
 
