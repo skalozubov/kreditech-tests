@@ -2,7 +2,7 @@
 
 <suite name="TestSuite" verbose="1" parallel="classes" thread-count="2">
 
-    <test name="Regression1">
+    <test name="Kreditech regression tests">
         <classes>
             <class name="com.kreditech.tests.GoogleSearchTest"/>
         </classes>
