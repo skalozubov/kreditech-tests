@@ -22,7 +22,7 @@ public class SearchResultsPage extends BasePage {
     }
 
     @Override
-    protected boolean isPageCorrect() {
+    public boolean isPageCorrect() {
         return !searchResults.isEmpty();
     }
 

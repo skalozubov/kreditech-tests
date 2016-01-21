@@ -21,7 +21,7 @@ public abstract class BasePage {
         }
     }
 
-    protected abstract boolean isPageCorrect();
+    public abstract boolean isPageCorrect();
 
     @Override
     public String toString() {
