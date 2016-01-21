@@ -8,6 +8,11 @@ public class HomePage extends BasePage{
         super(driver);
     }
 
+    @Override
+    protected boolean isPageCorrect() {
+        return false;
+    }
+
     public boolean isSocialSectionPresent() {
         return false;
     }
