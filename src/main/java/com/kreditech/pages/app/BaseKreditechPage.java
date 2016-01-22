@@ -51,6 +51,7 @@ public abstract class BaseKreditechPage extends BasePage {
 
     @Step("Check that social section is visible on a page")
     public boolean isSocialSectionPresent() {
+        SeleniumHelper.executeJavascript("scroll(0, 10000);", driver);
         return SeleniumHelper.isElementDisplayed(driver, twitterWidget) &&
                 SeleniumHelper.isElementDisplayed(driver, youtubeWidget) &&
                 SeleniumHelper.isElementDisplayed(driver, facebookWidget);
