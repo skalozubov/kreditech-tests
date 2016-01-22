@@ -5,6 +5,7 @@
     <test name="Kreditech regression tests">
         <classes>
             <class name="com.kreditech.tests.GoogleSearchTest"/>
+            <class name="com.kreditech.tests.SocialSectionTestsAdded"/>
         </classes>
     </test>
 </suite>
