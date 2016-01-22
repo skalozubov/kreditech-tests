@@ -10,3 +10,8 @@ How to run:
  Just open index.html in Firefox (local report can not be opened in Chrome due to security settings)
  - Chrome driver is used by default. To use Firefox just change "-Dbrowser=CHROME" to "-Dbrowser=FIREFOX"
  in run.sh
+
+ Note:
+ - Please update
+ https://github.com/skalozubov/kreditech-tests/blob/master/src/main/java/com/kreditech/users/TwitterUser.java
+ with correct credentials to make userShouldBeAbleToFollowKreditechOnTwitter() test success.
