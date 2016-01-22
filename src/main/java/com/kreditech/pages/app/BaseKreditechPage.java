@@ -6,6 +6,7 @@ import com.kreditech.pages.twitter.TwitterLoginPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.allure.annotations.Step;
 
 public abstract class BaseKreditechPage extends BasePage {
     @FindBy(id = "footer")
@@ -48,47 +49,56 @@ public abstract class BaseKreditechPage extends BasePage {
         super(driver);
     }
 
+    @Step("Check that social section is visible on a page")
     public boolean isSocialSectionPresent() {
         return SeleniumHelper.isElementDisplayed(driver, twitterWidget) &&
                 SeleniumHelper.isElementDisplayed(driver, youtubeWidget) &&
                 SeleniumHelper.isElementDisplayed(driver, facebookWidget);
     }
 
+    @Step("Open What we do page")
     public WhatWeDoPage openWhatWeDoPage() {
         whatWeDoMenuItem.click();
         return new WhatWeDoPage(driver);
     }
 
+    @Step("Open Careers page")
     public CareersPage openCareersPage() {
         careersMenuItem.click();
         return new CareersPage(driver);
     }
 
+    @Step("Open Investor relations page")
     public InvestorRelationsPage openInvestorRelationsPage() {
         investorRelationsMenuItem.click();
         return new InvestorRelationsPage(driver);
     }
 
+    @Step("Open Press page")
     public PressPage openPressPage() {
         pressMenuItem.click();
         return new PressPage(driver);
     }
 
+    @Step("Open Blog page")
     public BlogPage openBlogPage() {
         blogMenuItem.click();
         return new BlogPage(driver);
     }
 
+    @Step("Open Contact page")
     public ContactPage openContactPage() {
         contactMenuItem.click();
         return new ContactPage(driver);
     }
 
+    @Step("Open Who we are page")
     public WhoWeArePage openWhoWeArePage() {
         whoWeAreMenuItem.click();
         return new WhoWeArePage(driver);
     }
 
+    @Step("Click Follow on Twitter button")
     public TwitterLoginPage clickFollowOnTwitterButtonAndSwitchContext() {
         String pageContext = driver.getWindowHandle();
         driver.switchTo().frame(twitterWidget);

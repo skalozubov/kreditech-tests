@@ -1,8 +1,8 @@
 package com.kreditech.users;
 
 public class TwitterUser {
-    private String username = "zub_test";
-    private String password = "k3z2n2m3";
+    private String username = "dummyUsername";
+    private String password = "dummyPassword";
 
     public String getUsername() {
         return username;

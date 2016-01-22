@@ -21,6 +21,7 @@ public abstract class BasePage {
         }
     }
 
+    @Step("Check that opened page is correct")
     public abstract boolean isPageCorrect();
 
     @Override

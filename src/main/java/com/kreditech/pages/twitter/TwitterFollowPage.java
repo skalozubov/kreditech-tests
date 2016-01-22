@@ -6,6 +6,7 @@ import com.kreditech.pages.app.HomePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.allure.annotations.Step;
 
 public class TwitterFollowPage extends BasePage {
     @FindBy(css = ".follow > button")
@@ -23,11 +24,13 @@ public class TwitterFollowPage extends BasePage {
         return SeleniumHelper.isElementPresentAndVisible(unfollowButton);
     }
 
-    public void clickUnfollow() {;
+    @Step("Click Unfollow button")
+    public void clickUnfollow() {
         unfollowButton.click();
         SeleniumHelper.waitForElementToBeClickable(driver, followButton);
     }
 
+    @Step("Close Twitter popup")
     public HomePage closeWindowAndSwitchContextToDefault() {
         driver.close();
         SeleniumHelper.switchToDefaultContext(driver);

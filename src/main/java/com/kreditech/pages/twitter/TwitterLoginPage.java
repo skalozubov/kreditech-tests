@@ -6,6 +6,7 @@ import com.kreditech.users.TwitterUser;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.allure.annotations.Step;
 
 public class TwitterLoginPage extends BasePage {
     @FindBy(id = "username_or_email")
@@ -26,6 +27,7 @@ public class TwitterLoginPage extends BasePage {
         return SeleniumHelper.isElementPresentAndVisible(userNameInputField);
     }
 
+    @Step("Login on Twitter and Follow Kreditech")
     public TwitterFollowPage loginAndFollow(TwitterUser twitterUser) {
         userNameInputField.sendKeys(twitterUser.getUsername());
         passwordInputFiled.sendKeys(twitterUser.getPassword());
