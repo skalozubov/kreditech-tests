@@ -93,9 +93,9 @@ public class SeleniumHelper {
             wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    public static void switchContext(WebDriver driver, String currentContext) {
+    public static void switchContext(WebDriver driver, String initContext) {
         for (String windowHandle : driver.getWindowHandles()) {
-            if (!windowHandle.equals(currentContext)) {
+            if (!windowHandle.equals(initContext)) {
                 driver.switchTo().window(windowHandle);
             }
         }
@@ -108,7 +108,7 @@ public class SeleniumHelper {
             driver.switchTo().window(windowHandles.iterator().next());
         } else {
             driver.close();
-            throw new IllegalStateException("Some why facebook popup was not closed");
+            throw new IllegalStateException("Some why popup was not closed");
         }
     }
 

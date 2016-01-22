@@ -2,6 +2,7 @@ package com.kreditech.pages.app;
 
 import com.kreditech.helpers.SeleniumHelper;
 import com.kreditech.pages.BasePage;
+import com.kreditech.pages.twitter.TwitterLoginPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -39,6 +40,9 @@ public abstract class BaseKreditechPage extends BasePage {
 
     @FindBy(xpath = ".//iframe[contains(@src, \"facebook\")]")
     protected WebElement facebookWidget;
+
+    @FindBy(css = ".follow-button")
+    private WebElement followOnTwitterButton;
 
     public BaseKreditechPage(WebDriver driver) {
         super(driver);
@@ -83,5 +87,14 @@ public abstract class BaseKreditechPage extends BasePage {
     public WhoWeArePage openWhoWeArePage() {
         whoWeAreMenuItem.click();
         return new WhoWeArePage(driver);
+    }
+
+    public TwitterLoginPage clickFollowOnTwitterButtonAndSwitchContext() {
+        String pageContext = driver.getWindowHandle();
+        driver.switchTo().frame(twitterWidget);
+        followOnTwitterButton.click();
+        SeleniumHelper.sleepForOneSecond();
+        SeleniumHelper.switchContext(driver, pageContext);
+        return new TwitterLoginPage(driver);
     }
 }

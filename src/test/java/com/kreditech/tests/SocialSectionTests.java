@@ -4,6 +4,9 @@ import com.kreditech.BaseTest;
 import com.kreditech.pages.app.*;
 import com.kreditech.pages.google.SearchPage;
 import com.kreditech.pages.google.SearchResultsPage;
+import com.kreditech.pages.twitter.TwitterFollowPage;
+import com.kreditech.pages.twitter.TwitterLoginPage;
+import com.kreditech.users.TwitterUser;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Features;
@@ -28,6 +31,17 @@ public class SocialSectionTests extends BaseTest {
     @Stories("User should see social widgets on the Home page")
     public void userShouldSeeSocialWidgetsOnTheHomePage() {
         assertTrue(homePage.isSocialSectionPresent(), "Social section is absent on the Home page");
+    }
+
+    @Test
+    @Stories("User should be able to follow Kreditech on Twitter from Twitter widget")
+    public void userShouldBeAbleToFollowKreditechOnTwitter() {
+        TwitterUser twitterUser = new TwitterUser();
+        TwitterLoginPage twitterLoginPage = homePage.clickFollowOnTwitterButtonAndSwitchContext();
+        TwitterFollowPage twitterFollowPage = twitterLoginPage.loginAndFollow(twitterUser);
+        twitterFollowPage.clickUnfollow();
+        homePage = twitterFollowPage.closeWindowAndSwitchContextToDefault();
+        assertTrue(homePage.isPageCorrect(), "Kreditech home page is not verified");
     }
 
     @Test
